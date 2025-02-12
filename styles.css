@@ -1,0 +1,43 @@
+body {
+    font-family: roboto;
+    background-color: #681a41;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+    flex-direction: column; /* Asegura que el contenido esté en columna */
+    padding: 20px; /* Añadimos padding para evitar que el contenido toque los bordes en móviles */
+}
+.roboto-bold {
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-style: normal;
+}
+
+.container {
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px; /* Limitamos el ancho máximo del contenedor */
+    width: 100%; /* Aseguramos que el contenedor ocupe todo el ancho en móviles */
+}
+
+h1{
+    color: #ff69b4;
+}
+
+p {
+    font-size: 1.2em;
+    color: #b75050;
+}
+
+img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin-top: 20px;
+}
+

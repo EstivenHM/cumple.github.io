@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Adivinar el Número</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Juego de Adivinar el Número</h1>
+        <p>Adivina un número entre 1 y 20</p>
+        <input type="number" id="guess" min="1" max="20">
+        <button onclick="checkGuess()">Adivinar</button>
+        <p id="result"></p>
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="container">
+                <h1>Proximo evento</h1>
+                <p>Dia: Sabado 1 de Marzo</p>
+                <p>Hora: 12:30 pm</p>
+                <p>Lugar: Aventure X Lincon Plaza</p>
+                <img src="Evento1.jpeg" alt="Feliz Cumpleaños">
+                <h1>TE AMO MI PRINCESA</h1>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const fixedNumber = 10; // Número fijo para adivinar
+        function checkGuess() {
+            const userGuess = document.getElementById('guess').value;
+            const result = document.getElementById('result');
+            if (userGuess == fixedNumber) {
+                result.textContent = '¡Felicidades! Adivinaste el número.';
+                showModal();
+            } else if (userGuess < fixedNumber) {
+                result.textContent = 'El número es mayor. Intenta de nuevo.';
+            } else {
+                result.textContent = 'El número es menor. Intenta de nuevo.';
+            }
+        }
+
+        function showModal() {
+            const modal = document.getElementById('myModal');
+            const span = document.getElementsByClassName('close')[0];
+            modal.style.display = 'block';
+            span.onclick = function() {
+                modal.style.display = 'none';
+            }
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            }
+        }
+    </script>
+</body>
+</html>

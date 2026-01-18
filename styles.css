@@ -100,3 +100,219 @@ input[type="number"] {
     text-decoration: none;
     cursor: pointer;
 }
+
+/* Estilos para el Calendario de Eventos */
+.eventos-container {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    max-width: 1200px;
+    width: 100%;
+    margin: 20px;
+}
+
+.eventos-container h1 {
+    color: #ff69b4;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.eventos-container .subtitle {
+    color: #b75050;
+    font-size: 1.2em;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.eventos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.evento-card {
+    background: #ffffff;
+    border: 2px solid #ff69b4;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(255, 105, 180, 0.2);
+}
+
+.evento-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+}
+
+.evento-card.completado {
+    opacity: 0.7;
+    border-color: #4caf50;
+}
+
+.evento-card.completado .evento-imagen::after {
+    content: '✓';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #4caf50;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.evento-imagen {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+}
+
+.evento-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+.evento-card:hover .evento-imagen img {
+    transform: scale(1.1);
+}
+
+.evento-info {
+    padding: 20px;
+}
+
+.evento-info h3 {
+    color: #ff1493;
+    font-size: 1.5em;
+    margin: 0 0 15px 0;
+}
+
+.evento-detalles {
+    margin: 15px 0;
+    color: #666;
+}
+
+.evento-detalles p {
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+    font-size: 0.95em;
+    color: #555;
+}
+
+.evento-detalles i {
+    margin-right: 10px;
+    color: #ff69b4;
+    width: 20px;
+}
+
+.evento-descripcion {
+    color: #777;
+    font-size: 1em;
+    line-height: 1.5;
+    margin: 15px 0;
+}
+
+.evento-check {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #555;
+    user-select: none;
+}
+
+.evento-checkbox {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    accent-color: #ff69b4;
+}
+
+.checkbox-label:hover {
+    color: #ff69b4;
+}
+
+/* Sección de Progreso */
+.progreso-section {
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    padding: 30px;
+    border-radius: 12px;
+    color: white;
+    text-align: center;
+}
+
+.progreso-section h2 {
+    margin-top: 0;
+    font-size: 1.8em;
+}
+
+.progreso-bar-container {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 25px;
+    height: 40px;
+    margin: 20px 0;
+    overflow: hidden;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.progreso-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #ff69b4, #db7093);
+    border-radius: 25px;
+    transition: width 0.5s ease, background 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.progreso-texto {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    position: absolute;
+}
+
+.progreso-info {
+    font-size: 1.2em;
+    margin: 10px 0 0 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .eventos-container {
+        padding: 20px;
+    }
+
+    .eventos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .eventos-container h1 {
+        font-size: 2em;
+    }
+}

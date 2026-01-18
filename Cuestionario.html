@@ -32,16 +32,42 @@
 
     <script>
         const fixedNumber = 10; // Número fijo para adivinar
+        let intentosRestantes = 3;
+
         function checkGuess() {
-            const userGuess = document.getElementById('guess').value;
+            const userGuess = parseInt(document.getElementById('guess').value);
             const result = document.getElementById('result');
+
+            if (intentosRestantes <= 0) {
+                result.textContent = 'Ya no tienes más intentos. Intenta refrescar la página.';
+                result.style.color = '#ff0000';
+                return;
+            }
+
             if (userGuess == fixedNumber) {
                 result.textContent = '¡Felicidades! Adivinaste el número.';
+                result.style.color = '#4caf50';
                 showModal();
-            } else if (userGuess < fixedNumber) {
-                result.textContent = 'El número es mayor. Intenta de nuevo.';
+                intentosRestantes = 0;
             } else {
-                result.textContent = 'El número es menor. Intenta de nuevo.';
+                intentosRestantes--;
+                const diferencia = Math.abs(userGuess - fixedNumber);
+
+                if (intentosRestantes > 0) {
+                    if (diferencia <= 2) {
+                        result.textContent = `¡Estás muy cerca! Te quedan ${intentosRestantes} intento(s).`;
+                        result.style.color = '#ff9800';
+                    } else if (diferencia <= 5) {
+                        result.textContent = `Estás cerca. Te quedan ${intentosRestantes} intento(s).`;
+                        result.style.color = '#ff9800';
+                    } else {
+                        result.textContent = `Estás lejos. Te quedan ${intentosRestantes} intento(s).`;
+                        result.style.color = '#b75050';
+                    }
+                } else {
+                    result.textContent = `¡Perdiste! Se acabaron tus intentos. El número era ${fixedNumber}.`;
+                    result.style.color = '#ff0000';
+                }
             }
         }
 

@@ -1,6 +1,7 @@
 body {
     font-family: roboto;
-    background: linear-gradient(90deg,rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 31%, rgba(125, 46, 253, 1) 63%, rgba(118, 165, 218, 1) 81%, rgba(90, 69, 252, 1) 100%);
+    background: #020024;
+background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 14%, rgba(175, 5, 161, 1) 55%, rgba(208, 88, 154, 1) 81%, rgba(166, 17, 17, 1) 100%);
     display: flex;
     justify-content: center;
     align-items: center;

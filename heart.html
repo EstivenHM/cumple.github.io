@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Corazón de Te Amo</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, #ff758f, #c9184a);
+    overflow: hidden;
+    perspective: 1200px;
+    font-family: system-ui, sans-serif;
+  }
+
+  .scene {
+    width: 420px;
+    height: 420px;
+  }
+
+  .heart {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease-out;
+  }
+
+  .word {
+    position: absolute;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    user-select: none;
+    transform: translate(-50%, -50%);
+    opacity: 0.95;
+  }
+
+  @media (max-width: 480px) {
+    .scene {
+      width: 300px;
+      height: 300px;
+    }
+    .word {
+      font-size: 11px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="scene">
+  <div class="heart" id="heart"></div>
+</div>
+
+<script>
+const words = [
+  "Te amo", "I love you", "Je t’aime", "Ti amo", "Ich liebe dich",
+  "Eu te amo", "愛してる", "사랑해", "我爱你", "Я тебя люблю",
+  "Seni seviyorum", "Ik hou van jou", "Jag älskar dig", "Jeg elsker deg",
+  "Jeg elsker dig", "Minä rakastan sinua", "Kocham cię", "Te iubesc",
+  "Amo-te", "Mahal kita", "Σ’αγαπώ", "אני אוהב אותך", "أنا أحبك",
+  "मैं तुमसे प्यार करता हूँ", "Aku cinta kamu", "Saya cinta padamu",
+  "ฉันรักคุณ", "Tôi yêu bạn", "Naku penda", "Ek het jou lief",
+  "Volim te", "Ljubim te", "Ես քեզ սիրում եմ", "Мен сени сүйөм",
+  "Kei te aroha au ki a koe", "Mi amor", "Te quiero",
+  "Ngiyakuthanda", "Wo ai ni", "Kimi o aishiteru",
+  "Ani ohev otach", "Aishiteru", "Ez te hez dikim",
+  "Ich han di gärn", "Люблю тебя", "Saya sayang kamu",
+  "Aku sayang kamu", "Te amo mucho"
+];
+
+const heart = document.getElementById('heart');
+let index = 0;
+
+// ecuación clásica de corazón
+for (let t = 0; t < Math.PI * 2; t += 0.09) {
+  const x = 16 * Math.pow(Math.sin(t), 3);
+  const y = 13 * Math.cos(t)
+          - 5 * Math.cos(2 * t)
+          - 2 * Math.cos(3 * t)
+          - Math.cos(4 * t);
+
+  const span = document.createElement('span');
+  span.className = 'word';
+  span.textContent = words[index % words.length];
+
+  const scale = 10; // tamaño del corazón
+  span.style.left = 50 + x * scale / 10 + '%';
+  span.style.top  = 50 - y * scale / 10 + '%';
+
+  heart.appendChild(span);
+  index++;
+}
+
+// efecto 3D con el mouse
+document.addEventListener('mousemove', e => {
+  const x = (window.innerWidth / 2 - e.clientX) / 30;
+  const y = (window.innerHeight / 2 - e.clientY) / 30;
+  heart.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+});
+
+// reset
+document.addEventListener('mouseleave', () => {
+  heart.style.transform = 'rotateX(0deg) rotateY(0deg)';
+});
+</script>
+
+</body>
+</html>

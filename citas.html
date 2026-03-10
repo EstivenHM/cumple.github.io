@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación a Nuestra Primera Cita</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="Menu-header">
+        <a href="index.html">
+            <i class="fa-solid fa-house"></i>
+            <span>Inicio</span>
+        </a>
+    </div>
+
+    <div class="eventos-container">
+        <h1>💕Primera cita del año 💕</h1>
+        <p class="subtitle">Te invito a nuestra primera cita</p>
+
+        <div class="cita-card">
+            <!-- Imagen de la cita -->
+            <div class="evento-imagen">
+                <!-- Agrega tu foto aquí cambiando el src -->
+                <img src="sushi.jpeg" alt="Nuestra primera cita">
+            </div>
+
+            <div class="evento-info">
+                <h3>Mi amor, quiero invitarte a algo especial...</h3>
+                
+                <div class="cita-mensaje">
+                    <p>Desde que te conocí, cada momento y experiencia contigo ah sido de lo mejor que me ha pasado
+                    Por eso quisiera invitarte a nuestra primer cita del calendario. Y que mejor que comer sushi? 
+                    ¿Me harías el honor de acompañarme en esta primera cita?</p>
+                </div>
+
+                <div class="evento-detalles">
+                    <h4 style="color: #ff1493; margin: 20px 0 15px 0;">📍 Detalles de la Cita:</h4>
+                    
+                    <p><i class="fa-solid fa-calendar-heart"></i> <strong>Día:</strong> <span class="editable">Jueves 12 de Marzo</span></p>
+                    
+                    <p><i class="fa-solid fa-clock"></i> <strong>Hora:</strong> <span class="editable">12:00 PM</span></p>
+                    
+                    <p><i class="fa-solid fa-location-dot"></i> <strong>Lugar:</strong> <span class="editable">Ichiraku Ramen</span></p>
+                    
+                    <p><i class="fa-solid fa-map-marker-alt"></i> <strong>Dirección:</strong> <span class="editable">Te recojo en Alajuela</span></p>
+                </div>
+
+                <div class="cita-nota">
+                    <p><i class="fa-solid fa-heart"></i> Me gustaria regalarte un bonito dia y poder pasar un dia lindo contigo.</p>
+                </div>
+
+                <div class="evento-check">
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="evento-checkbox" id="confirmar-cita">
+                        <span>¿Acepta? 💖</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="mensaje-final">
+            <p>Con todo mi cariño,</p>
+            <p style="font-size: 1.3em; color: #ff1493; font-weight: bold;">Una Persona Que Te Ama 💕</p>
+        </div>
+    </div>
+
+    <script>
+        // Script para cuando acepta la cita
+        document.getElementById('confirmar-cita').addEventListener('change', function() {
+            if(this.checked) {
+                alert('¡Sí! 💕 ¡Será la mejor cita del mundo! 😊');
+            }
+        });
+    </script>
+</body>
+</html>

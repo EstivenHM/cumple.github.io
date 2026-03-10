@@ -303,6 +303,113 @@ input[type="number"] {
     margin: 10px 0 0 0;
 }
 
+/* Estilos para la página de Citas */
+.cita-card {
+    background: #ffffff;
+    border: 3px solid #ff69b4;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(255, 105, 180, 0.3);
+    margin-bottom: 30px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Ajuste específico para la imagen en la tarjeta de cita */
+.cita-card .evento-imagen {
+    height: 600px;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0f0f0;
+}
+
+.cita-card .evento-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    min-width: 100%;
+}
+
+/* Ajuste para pantallas más anchas (landscape/horizontal) */
+@media (min-width: 1024px) {
+    .cita-card .evento-imagen {
+        height: 700px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .cita-card .evento-imagen {
+        height: 800px;
+    }
+}
+
+.cita-mensaje {
+    background: linear-gradient(135deg, #fff5f8, #ffe6f0);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    border-left: 4px solid #ff69b4;
+}
+
+.cita-mensaje p {
+    color: #555;
+    font-size: 1.1em;
+    line-height: 1.8;
+    margin: 0;
+    text-align: justify;
+}
+
+.cita-nota {
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.cita-nota p {
+    color: white;
+    font-size: 1.1em;
+    margin: 0;
+    font-weight: 500;
+}
+
+.cita-nota i {
+    color: white;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+.editable {
+    color: #ff1493;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.mensaje-final {
+    text-align: center;
+    padding: 30px 20px;
+    background: linear-gradient(135deg, #fff5f8, #ffe6f0);
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+.mensaje-final p {
+    margin: 10px 0;
+    color: #b75050;
+    font-size: 1.1em;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .eventos-container {
@@ -312,6 +419,33 @@ input[type="number"] {
     .eventos-grid {
         grid-template-columns: 1fr;
     }
+
+    .eventos-container h1 {
+        font-size: 2em;
+    }
+
+    /* Ajuste de imagen en móviles para citas */
+    .cita-card .evento-imagen {
+        min-height: 300px;
+        height: 400px;
+    }
+
+    .cita-mensaje p {
+        font-size: 1em;
+        text-align: left;
+    }
+
+    .mensaje-final {
+        padding: 20px 15px;
+    }
+}
+
+/* Ajuste para móviles en horizontal */
+@media (max-width: 768px) and (orientation: landscape) {
+    .cita-card .evento-imagen {
+        height: 350px;
+    }
+}
 
     .eventos-container h1 {
         font-size: 2em;
